@@ -1,0 +1,6 @@
+{
+  "venv": "", 
+  "name": "SumpPump", 
+  "license": "GNU General Public License v3", 
+  "description": "This is the code that will run on my Raspberry Pi in order to monitor the sump pump."
+}
