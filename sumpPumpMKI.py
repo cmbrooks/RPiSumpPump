@@ -1,4 +1,4 @@
-from datetime import datetime
+import time
 
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
@@ -8,16 +8,16 @@ floatSwitch = GPIO.input(17)
 import smtplib
 
 running = True
-now = datetime.now()
 log = open("sumpPumpLog.txt", "r+")
-startTime = now.time()
+startTime = time.time()
 
 
 def elapsedTime():
     """This function checks how much time
     has elapsed since the timer has started"""
-    currentTime = now.time()
-    return startTime - currentTime
+    endtime = time.time()
+    elapsed = endtime - starttime
+    return elapsed
 
 
 def sendEmail(*msg):
@@ -47,11 +47,11 @@ def sendEmail(*msg):
 while running is True:
     if floatSwitch is True:
         #Write the time and what happened to the file
-        log.write(str(now) + "Float switch turned on")
+        log.write(str(time.time() + "Float switch turned on")
         #Wait until switch is turned off
+
         while floatSwitch is True:
-            #Add start time elapsed
-            startTime = now.time()
+            startTime = time.time()
             if floatSwitch is False:
                 log.write(str(now) + "Float switch turned off")
                 break
