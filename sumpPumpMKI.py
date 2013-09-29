@@ -20,20 +20,20 @@ def elapsedTime():
     return elapsed
 
 
-def sendEmail(*msg):
+def sendEmail(msg):
     """This function sends an email to selected recipients with a custom
     message as well as the log file attached."""
     #enter the code that sends an email to the family with the log attached
 
-    fromaddr = 'codymb36@gmail.com'
-    toaddrs = ['brooks.steve@gmail.com', 'brooks.stacey@gmail.com', 'codymb36@gmail.com']
-    msg = """Please see the Pi and the data log file for more details."""
+    fromaddr = 'from@email.com'
+    toaddrs = ['to@email.com']
+    finalmsg = msg + """Please see the Pi and the data log file for more details."""
 
     # Credentials (if needed)
-    username = 'codymb36'
-    password = '$inspire26.8*'
+    username = 'my_username'
+    password = 'my_password'
 
-    msg.attached()
+    finalmsg.attached()
 
     # The actual mail send
     server = smtplib.SMTP('smtp.gmail.com:587')
@@ -46,21 +46,19 @@ def sendEmail(*msg):
 if running is True:
     if floatSwitch is True:
         #Write the time and what happened to the file
-        log.write(str(time.time() + "Float switch turned on")
+        log.write(str(time.time() + "Float switch turned on"))
         #Wait until switch is turned off
 
-        while floatSwitch is True:
+        while floatSwitch:
             startTime = time.time()
             if floatSwitch is False:
                 log.write(str(now) + "Float switch turned off")
                 break
-            #if elapsedTime > 3 min
-            elif elapsedTime() > 3:
+            #if elapsedTime > 3 min (in the form of 180 seconds)
+            elif elapsedTime() > 180:
                 log.write(str(now) + "Sump Pump has been deemed broaken")
                 sendEmail("The sump pump is now broken.")
 
 else:
     log.write(str(time.time() + "The sctipt has stopped.")
     sendEmail("The script has been stopped.")
-
-
