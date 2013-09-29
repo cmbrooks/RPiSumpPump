@@ -26,9 +26,8 @@ def sendEmail(*msg):
     #enter the code that sends an email to the family with the log attached
 
     fromaddr = 'codymb36@gmail.com'
-    toaddrs = 'codymb36@gmail.com'
-    msg = """The sump pump has been deemed not working.
-    Please see the Pi and the data log file for more details."""
+    toaddrs = ['brooks.steve@gmail.com', 'brooks.stacey@gmail.com', 'codymb36@gmail.com']
+    msg = """Please see the Pi and the data log file for more details."""
 
     # Credentials (if needed)
     username = 'codymb36'
@@ -44,7 +43,7 @@ def sendEmail(*msg):
     server.quit()
 
 
-while running is True:
+if running is True:
     if floatSwitch is True:
         #Write the time and what happened to the file
         log.write(str(time.time() + "Float switch turned on")
@@ -59,5 +58,9 @@ while running is True:
             elif elapsedTime() > 3:
                 log.write(str(now) + "Sump Pump has been deemed broaken")
                 sendEmail("The sump pump is now broken.")
+
+else:
+    log.write(str(time.time() + "The sctipt has stopped.")
+    sendEmail("The script has been stopped.")
 
 
