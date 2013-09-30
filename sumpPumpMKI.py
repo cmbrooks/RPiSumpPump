@@ -9,7 +9,7 @@ import smtplib
 
 running = True
 log = open("sumpPumpLog.txt", "r+")
-startTime = time.time()
+starttime = time.time()
 
 
 def elapsedTime():
@@ -43,7 +43,7 @@ def sendEmail(msg):
     server.quit()
 
 
-if running is True:
+while running is True:
     if floatSwitch is True:
         #Write the time and what happened to the file
         log.write(str(time.time() + "Float switch turned on"))
@@ -52,13 +52,14 @@ if running is True:
         while floatSwitch:
             startTime = time.time()
             if floatSwitch is False:
-                log.write(str(now) + "Float switch turned off")
+                log.write(str(time.time()) + "Float switch turned off")
                 break
             #if elapsedTime > 3 min (in the form of 180 seconds)
             elif elapsedTime() > 180:
-                log.write(str(now) + "Sump Pump has been deemed broaken")
+                log.write(str(time.time() + "Sump Pump has been deemed broaken"))
                 sendEmail("The sump pump is now broken.")
+                break
 
-else:
-    log.write(str(time.time() + "The sctipt has stopped.")
-    sendEmail("The script has been stopped.")
+log.write(str(time.time() + "The sctipt has stopped."))
+sendEmail("The script has stopped.")
+exit
