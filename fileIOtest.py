@@ -1,2 +1,6 @@
-log = open("H:\Documents\Code\PythonCode\SumpPump\sumpPumpLog.txt", "r+")
-log.write("Hello World")
+from datetime import datetime
+now = datetime.now
+
+log = open("/home/cody/Documents/Code/PythonCode/SumpPump/sumpPumpLog.txt", "r+")
+printed = log.write(str(now()) + " Hello World")
+print (printed)

@@ -1,4 +1,6 @@
 import time
+from datetime import datetime
+now = datetime.now()
 
 #import RPi.GPIO as GPIO
 #GPIO.setmode(GPIO.BCM)
@@ -10,7 +12,7 @@ floatSwitch = True
 import smtplib
 
 running = True
-log = open("H:\Documents\Code\PythonCode\SumpPump\sumpPumpLog.txt", "r+")
+log = open("/home/cody/Documents/Code/PythonCode/SumpPump/sumpPumpLog.txt", "r+")
 starttime = time.time()
 
 
@@ -54,35 +56,38 @@ there to save the family's basement. The end."""
 
 
 while running is True:
-    user_input = raw_input("What would you like to do?")
 
-    if user_input == "Tell me a story":
-        story()
-    elif user_input == "What is your name":
-        print """I do not have a name. I am only a computer that has no soul.
-    My sole purpose is to protect your sump pump and your basement. I will
-    give my life to protect it. My dying words will be contained in an email
-    that says, 'Your sump pump is now broken.'"""
-    elif user_input == "stop":
-        break
-    else:
-        print "I do not recognize that command. Please try agian."
+    while running is True:
+
+        user_input = raw_input("What would you like to do?")
+
+        if user_input == "Tell me a story":
+            story()
+        elif user_input == "What is your name":
+            print """I do not have a name. I am only a computer that has no soul.
+        My sole purpose is to protect your sump pump and your basement. I will
+        give my life to protect it. My dying words will be contained in an email
+        that says, 'Your sump pump is now broken.'"""
+        elif user_input == "stop":
+            break
+        else:
+            print "I do not recognize that command. Please try agian."
 
     if floatSwitch is True:
         #Write the time and what happened to the file
-        log.write(str(time.time() + "Float switch turned on"))
+        log.write(str(now) + "Float switch turned on")
         #Wait until switch is turned off
 
         while floatSwitch:
             startTime = time.time()
             if floatSwitch is False:
-                log.write(str(time.time()) + "Float switch turned off")
+                log.write(str(now) + "Float switch turned off")
                 break
             #if elapsedTime > 3 min (in the form of 180 seconds)
             elif elapsedTime() > 180:
-                log.write(str(time.time() + "Sump Pump has been deemed broaken"))
+                log.write(str(now) + " Sump Pump has been deemed broaken")
                 sendEmail("The sump pump is now broken.")
                 break
 
-log.write(str(time.time() + "The sctipt has stopped."))
+log.write(str(now) + " The sctipt has stopped.")
 sendEmail("The script has stopped.")
