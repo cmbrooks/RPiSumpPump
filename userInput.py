@@ -21,7 +21,7 @@ while running is True:
     elif user_input == "what is your quest":
         print "To seek the Holy Grail"
     elif user_input == "what is your favorite color":
-        print ""
+        print "Blue"
     elif user_input == "status":
         if floatSwitch == True:
             print "The switch is up"
