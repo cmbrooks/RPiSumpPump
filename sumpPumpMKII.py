@@ -12,7 +12,7 @@ floatSwitch = True
 import smtplib
 
 running = True
-log = open("/home/cody/Documents/Code/PythonCode/SumpPump/sumpPumpLog.txt", "r+")
+log = open("C:\Users\cobrooks\Documents\RPiSumpPump-testing\RPiSumpPump-testing\sumpPumpLog.txt", "r+")
 starttime = time.time()
 
 
@@ -56,7 +56,7 @@ there to save the family's basement. The end."""
 
 
 while running is True:
-
+###############################################################################
     while running is True:
 
         user_input = raw_input("What would you like to do?")
@@ -64,24 +64,36 @@ while running is True:
         if user_input == "Tell me a story":
             story()
         elif user_input == "What is your name":
-            print """I do not have a name. I am only a computer that has no soul.
-        My sole purpose is to protect your sump pump and your basement. I will
-        give my life to protect it. My dying words will be contained in an email
-        that says, 'Your sump pump is now broken.'"""
-        elif user_input == "stop":
+            print """I do not have a name. I am only a computer that has no
+soul. My sole purpose is to protect your sump pump and your basement. I will
+give my life to protect it. My dying words will be contained in an email
+that says, 'Your sump pump is now broken.'"""
+        elif user_input == "stop" or "exit":
             break
+        elif user_input == "status":
+            if floatSwitch == True:
+                print "The switch is up"
+                break
+            else:
+                print "The switch is down"
+                break
+        elif user_input == "history":
+            print log.readline(-2)
+            print log.readline(-1)
         else:
             print "I do not recognize that command. Please try agian."
-
+###############################################################################
     if floatSwitch is True:
         #Write the time and what happened to the file
         log.write(str(now) + "Float switch turned on")
+        timeLastOn = now
         #Wait until switch is turned off
 
         while floatSwitch:
             startTime = time.time()
             if floatSwitch is False:
                 log.write(str(now) + "Float switch turned off")
+                timeLastOff = now
                 break
             #if elapsedTime > 3 min (in the form of 180 seconds)
             elif elapsedTime() > 180:
