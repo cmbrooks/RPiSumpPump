@@ -10,21 +10,18 @@ flooded without the family knowing. This is a sad story. If only I was
 there to save the family's basement. \n The end."""
 
 
-def name():
-     print """I do not have a name. I am only a computer that has no
-soul. My sole purpose is to protect your sump pump and your basement. I will
-give my life to protect it. My dying words will be contained in an email
-that says, 'Your sump pump is now broken.' \n"""
-
-
 while running is True:
 
     user_input = raw_input("What would you like to do? \n").lower()
 
-    if user_input == "Tell me a story":
+    if user_input == "tell me a story":
         story()
-    elif user_input == "What is your name":
-        name()
+    elif user_input == "what is your name":
+        print "Lancelot"
+    elif user_input == "what is your quest":
+        print "To seek the Holy Grail"
+    elif user_input == "what is your favorite color":
+        print ""
     elif user_input == "status":
         if floatSwitch == True:
             print "The switch is up"

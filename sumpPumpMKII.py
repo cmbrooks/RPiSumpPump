@@ -59,29 +59,28 @@ while running is True:
 ###############################################################################
     while running is True:
 
-        user_input = raw_input("What would you like to do?")
+            user_input = raw_input("What would you like to do? \n").lower()
 
-        if user_input == "Tell me a story":
-            story()
-        elif user_input == "What is your name":
-            print """I do not have a name. I am only a computer that has no
-soul. My sole purpose is to protect your sump pump and your basement. I will
-give my life to protect it. My dying words will be contained in an email
-that says, 'Your sump pump is now broken.'"""
-        elif user_input == "stop" or "exit":
-            break
-        elif user_input == "status":
-            if floatSwitch == True:
-                print "The switch is up"
-                break
-            else:
-                print "The switch is down"
-                break
-        elif user_input == "history":
-            print log.readline(-2)
-            print log.readline(-1)
+    if user_input == "tell me a story":
+        story()
+    elif user_input == "what is your name":
+        print "Lancelot"
+    elif user_input == "what is your quest":
+        print "To seek the Holy Grail"
+    elif user_input == "what is your favorite color":
+        print ""
+    elif user_input == "status":
+        if floatSwitch == True:
+            print "The switch is up"
         else:
-            print "I do not recognize that command. Please try agian."
+            print "The switch is down"
+    elif user_input == "history":
+        print log.readline(-2)
+        print log.readline(-1) + "\n"
+    elif user_input == "exit" or "stop":
+        break
+    else:
+        print "I do not recognize that command. Please try agian."
 ###############################################################################
     if floatSwitch is True:
         #Write the time and what happened to the file
