@@ -12,7 +12,7 @@ floatSwitch = True
 import smtplib
 
 running = True
-log = open("C:\Users\cobrooks\Documents\RPiSumpPump-testing\RPiSumpPump-testing\sumpPumpLog.txt", "r+")
+log = open("/mnt/RPIDATA/sumpPumpLog.txt" "r+")
 starttime = time.time()
 
 
