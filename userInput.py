@@ -1,6 +1,6 @@
 running = True
 floatSwitch = False
-log = open("C:\Users\cobrooks\Documents\RPiSumpPump-testing\RPiSumpPump-testing\sumpPumpLog.txt", "r+")
+log = open("/media/RPIDATA/sumpPumpLog.txt", "r+")
 
 def story():
     print """Once upon a time, there was a sump pump. The sump pump was in a
