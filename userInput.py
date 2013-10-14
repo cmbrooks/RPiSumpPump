@@ -1,13 +1,14 @@
 running = True
 floatSwitch = False
-log = open("/media/RPIDATA/sumpPumpLog.txt", "r+")
+log = open("C:\Users\cobrooks\Documents\sumpPumpLog.txt", "r+")
+
 
 def story():
-    print """Once upon a time, there was a sump pump. The sump pump was in a
+    print ("""Once upon a time, there was a sump pump. The sump pump was in a
 family's basement. The family depended on the sump pump for their saftey.
 one night, there was a storm. The sump was broken though, and the basement
 flooded without the family knowing. This is a sad story. If only I was
-there to save the family's basement. \n The end."""
+there to save the family's basement. \n The end.""")
 
 
 while running is True:
@@ -17,23 +18,25 @@ while running is True:
     if user_input == "tell me a story":
         story()
     elif user_input == "what is your name":
-        print "Lancelot"
+        print ("Lancelot")
     elif user_input == "what is your quest":
-        print "To seek the Holy Grail"
+        print ("To seek the Holy Grail")
     elif user_input == "what is your favorite color":
-        print "Blue"
+        print ("Blue")
     elif user_input == "status":
-        if floatSwitch == True:
-            print "The switch is up"
+        if floatSwitch is True:
+            print ("The switch is up")
         else:
-            print "The switch is down"
+            print ("The switch is down")
     elif user_input == "history":
-        print log.readline(-2)
-        print log.readline(-1) + "\n"
-    elif user_input == "exit" or "stop":
+        print ((log.readline(-2)))
+        print ((log.readline(-1) + "\n"))
+    elif user_input == ("exit" or "stop"):
         break
     elif user_input == "help":
-        print ("""The commands that can be used with this program are as follows:
+        print ("""The commands that can be used with this program
+are as follows:
+
 'Status' - Gives the current position of the float switch
 
 'History' - Gives last time float switch was on, and then off
@@ -41,5 +44,5 @@ while running is True:
 'Exit' or 'Stop' - Exits the program""")
 
     else:
-        print "I do not recognize that command. Please try agian."
-print "Have a nice day!"
+        print ("I do not recognize that command. Please try agian.")
+print ("Have a nice day!")
