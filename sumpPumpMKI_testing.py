@@ -10,7 +10,7 @@ floatSwitch = GPIO.input(17)
 import smtplib
 
 running = True
-log = open("sumpPumpLog.txt", "r+")
+log = open("/media/RPIDATA/sumpPumpLog.txt", "r+")
 starttime = time.time()
 
 
