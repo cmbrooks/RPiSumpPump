@@ -32,6 +32,14 @@ while running is True:
         print log.readline(-1) + "\n"
     elif user_input == "exit" or "stop":
         break
+    elif user_input == "help":
+        print ("""The commands that can be used with this program are as follows:
+'Status' - Gives the current position of the float switch
+
+'History' - Gives last time float switch was on, and then off
+
+'Exit' or 'Stop' - Exits the program""")
+
     else:
         print "I do not recognize that command. Please try agian."
 print "Have a nice day!"
