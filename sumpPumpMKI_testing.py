@@ -48,7 +48,7 @@ def sendEmail(msg):
 
 
 while running is True:
-    if floatSwitch is True:
+    if floatSwitch is 1:
         #Write the time and what happened to the file
         log.write(str(now) + " Float switch turned on")
         print ("Float switch turned on")
@@ -56,7 +56,7 @@ while running is True:
 
         while floatSwitch:
             startTime = time.time()
-            if floatSwitch is False:
+            if floatSwitch is 0:
                 log.write(str(now) + " Float switch turned off")
                 print ("Float switch turned off")
                 break
