@@ -67,9 +67,12 @@ while running is True:
                 sendEmail("The sump pump is now broken.")
                 print ("An email has been sent saying the sump pump is broken.")
                 break
+            elif raw_input("Stop?") == "stop":
+                running = False
+                break
 
 log.write(str(now) + " The sctipt has stopped.")
 print ("The script has stopped")
 sendEmail("The script has stopped.")
 print ("An email was sent sayig 'The script has stopped'")
-exit
+log.close
