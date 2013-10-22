@@ -9,3 +9,4 @@ log = open("/media/RPIDATA/sumpPumpLog.txt", "r+")
 
 log.write("\n" + str(floatSwitch))
 print (str(floatSwitch))
+log.close
