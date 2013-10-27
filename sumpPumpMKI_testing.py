@@ -71,7 +71,6 @@ while running is True:
             elif raw_input("Stop?") == "stop":
                 running = False
                 break
->>>>>>> b429789f199a9901903d56aa1eab27d91cfced7f
 
 log.write(str(now) + " The sctipt has stopped.")
 print ("The script has stopped")
