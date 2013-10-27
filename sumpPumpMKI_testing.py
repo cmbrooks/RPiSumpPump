@@ -31,7 +31,8 @@ def sendEmail(msg):
 
     fromaddr = 'brookssumppump@gmail.com'
     toaddrs = ['codymb36@gmail.com']
-    finalmsg = msg + """Please see the Pi and the data log file for more details."""
+    finalmsg = msg + """Please see the Pi and the data
+log file for more details."""
 
     # Credentials (if needed)
     username = 'brookssumppump'
@@ -47,30 +48,6 @@ def sendEmail(msg):
     server.quit()
 
 
-<<<<<<< HEAD
-if floatSwitch is 1:
-    #Write the time and what happened to the file
-    log.write(str(now) + " Float switch turned on")
-    print ("Float switch turned on")
-    #Wait until switch is turned off
-
-    while floatSwitch:
-        startTime = time.time()
-        if floatSwitch is 0:
-            log.write(str(now) + " Float switch turned off")
-            print ("Float switch turned off")
-            break
-        #if elapsedTime > 3 min (in the form of 180 seconds)
-        elif elapsedTime() > 180:
-            log.write(str(now) + " Sump Pump has been deemed broaken")
-            print ("Sump Pump is broken")
-            sendEmail("The sump pump is now broken.")
-            print ("An email has been sent saying the sump pump is broken.")
-            break
-        elif raw_input() == "stop":
-            running = False
-            break
-=======
 while running is True:
     if floatSwitch is 1:
         #Write the time and what happened to the file
