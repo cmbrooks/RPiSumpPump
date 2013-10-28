@@ -52,15 +52,15 @@ log file for more details."""
 
 
 while running is True:
-    if floatSwitch is 1:
+    if floatSwitch() is 1:
         #Write the time and what happened to the file
         log.write(str(now) + " Float switch turned on")
         print ("Float switch turned on")
         #Wait until switch is turned off
 
-        while floatSwitch:
+        while floatSwitch() = 1:
             startTime = time.time()
-            if floatSwitch is 0:
+            if floatSwitch() is 0:
                 log.write(str(now) + " Float switch turned off")
                 print ("Float switch turned off")
                 break
