@@ -1,16 +1,26 @@
+import time
 from datetime import datetime
-now = datetime.now()
 
 
-def elapsedTime():
+def now():
+    return datetime.now()
+
+starttime = now
+
+
+def elapsedTime(function):
     """This function checks how much time
     has elapsed since the timer has started"""
-    currentTime = now.time()
-    elapsed = str(startTime) - str(currentTime
+
+    if function == "start":
+        endtime = time.time()
+    elif function == "pause":
+        endtime = starttime
+    elif function == "print":
+        print (endtime - float(starttime))
+
+    elapsed = (endtime - starttime)
     return elapsed
 
-
-startTime = now.time()
 while True:
-    print (elapsedTime())
-
+    elapsedTime(raw_input("what now?"))
