@@ -7,13 +7,16 @@ now = datetime.time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.IN)
-floatSwitch = GPIO.input(17)
 
 import smtplib
 
 running = True
 log = open("/media/RPIDATA/sumpPumpLog.txt", "r+")
 starttime = time.time()
+
+
+def floatSwitch():
+    return GPIO.input(17)
 
 
 def elapsedTime():
