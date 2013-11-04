@@ -1,4 +1,8 @@
-print (str(now) + "The Script has started")
+###############################################################################
+# Sump Pump monitored by a Raspberry Pi
+###############################################################################
+
+#Initialization
 
 import time
 from datetime import datetime
@@ -13,6 +17,8 @@ import smtplib
 running = True
 log = open("/media/RPIDATA/sumpPumpLog.txt", "r+")
 starttime = time.time()
+
+print (str(now) + "The Script has started")
 
 
 def floatSwitch():
@@ -50,28 +56,28 @@ log file for more details."""
     server.sendmail(fromaddr, toaddrs, msg)
     server.quit()
 
+###############################################################################
+
+#Body of the code
 
 while running is True:
-    if floatSwitch() is 0:
+    if floatSwitch() is 0: #Looks for the float switch turning on
         #Write the time and what happened to the file
         log.write(str(now) + " Float switch turned on")
         print (str(now) + "The float switch turned on")
-        #Wait until switch is turned off
-
         startTime = time.time()
-        if floatSwitch() is 1:
+        if floatSwitch() is 1: #Wait until switch is turned off
             log.write(str(now) + " Float switch turned off")
             print (str(now) + "Float switch turned off")
             break
         #if elapsedTime > 3 min (in the form of 180 seconds)
-        elif elapsedTime() > 180:
-            log.write(str(now) + " Sump Pump has been deemed broaken")
-            print (str(now) + "Sump Pump is broken")
-            sendEmail("The sump pump is now broken.")
-            print (str(now) + "An email has been sent saying the sump pump is broken.")
-            break
-
-            time.sleep(0.05)
+        #elif elapsedTime() > 180:
+            #log.write(str(now) + " Sump Pump has been deemed broaken")
+            #print (str(now) + "Sump Pump is broken")
+            #sendEmail("The sump pump is now broken.")
+            #print (str(now) + "An email has been sent saying the sump pump is broken.")
+            #break
+            time.sleep(0.05) #Prevents Bouncing
 
 log.write(str(now) + " The sctipt has stopped.")
 print (str(now) + "The script has stopped")
